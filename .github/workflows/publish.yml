@@ -1,0 +1,35 @@
+name: Publicar SDK no NPM
+
+on:
+  push:
+    tags:
+      - 'v*' # Dispara a action sempre que enviar uma tag de versao (ex: v1.0.0)
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Baixa o codigo fonte no servidor do GitHub
+      - name: Checkout do Codigo
+        uses: actions/checkout@v4
+
+      # 2. Instala e configura o Node.js 20
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      # 3. Instala as dependencias do projeto
+      - name: Instalar Dependencias
+        run: npm ci
+
+      # 4. Roda o script de compilacao (gera o supervideo.js minificado na pasta dist)
+      - name: Compilar Build do SDK
+        run: npm run build
+
+      # 5. Publica no NPM utilizando a chave de seguranca cadastrada no GitHub
+      - name: Publicar no NPM
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

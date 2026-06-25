@@ -1,0 +1,35 @@
+{
+  "name": "@supervideo/js-sdk",
+  "version": "1.0.0",
+  "description": "SDK de integracao cliente para embutir videochamadas do SuperVideo",
+  "main": "dist/supervideo.js",
+  "unpkg": "dist/supervideo.js",
+  "jsdelivr": "dist/supervideo.js",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "devDependencies": {
+    "terser": "^5.31.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/osupervideo/supervideo-js-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/osupervideo/supervideo-js-sdk/issues"
+  },
+  "homepage": "https://github.com/osupervideo/supervideo-js-sdk#readme",
+  "keywords": [
+    "supervideo",
+    "webrtc",
+    "sdk",
+    "embed",
+    "iframe"
+  ],
+  "author": "SuperVideo Team",
+  "license": "MIT"
+}
