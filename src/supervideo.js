@@ -86,5 +86,5 @@
     };
   }
 
-  global.SuperVideo = { embed: embed, version: '1.0.0' };
+  global.SuperVideo = { embed: embed, version: '1.0.1' };
 })(typeof window !== 'undefined' ? window : this);
